@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: mydatabase
+    volumes:
+      - ./db_data:/var/lib/postgresql/data  # Mapeando os dados do PostgreSQL para o diretório local ./db_data
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
