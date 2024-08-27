@@ -1,6 +1,6 @@
  const express = require('express')
 
- const buscarRouter = require('./busca.js')
+ const buscarRouter = require('./filmes.js')
 
  const router = express.Router()
 
